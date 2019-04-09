@@ -317,6 +317,22 @@
   
 
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2013/12/02/my-first-blog/",
+  owner: 'typ1990',
+  repo: 'https://typ1990.github.io/',
+  oauth: {
+    client_id: 'd053c917635c9c7e4204',
+    client_secret: '998e4cf64e81f2496968a220c7d8774d8fc958a4',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
