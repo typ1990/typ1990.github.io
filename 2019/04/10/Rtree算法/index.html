@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://typ1990.github.io">
-  <title>Archives: 2019/2 | 凡叶</title>
+  <title>Rtree算法 | 凡叶</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="虽世界艰难，但有你陪伴">
-<meta name="keywords" content="陪伴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="凡叶">
-<meta property="og:url" content="https://typ1990.github.io/archives/2019/02/index.html">
+  <meta name="description" content="注：部分来源于网络 Rtree是为解决二维及二维以上的数据索引问题的。常用于解决空间问题。 空间数据经常是多维的，并不能用一些点来简单的表示。例如地图里面的街道、村庄等。对空间数据的一个典型操作是查找某个区域的所有目标（例如查找中关村大街上所有的餐馆等）。 对空间数据建立索引是一种好的想法，但传统数据库的一维索引并不适合对多维数据的查找。例如 hash 等结构也不适合，因为搜索的时候有一定的范围。">
+<meta name="keywords" content="LBS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rtree算法">
+<meta property="og:url" content="https://typ1990.github.io/2019/04/10/Rtree算法/index.html">
 <meta property="og:site_name" content="凡叶">
-<meta property="og:description" content="虽世界艰难，但有你陪伴">
+<meta property="og:description" content="注：部分来源于网络 Rtree是为解决二维及二维以上的数据索引问题的。常用于解决空间问题。 空间数据经常是多维的，并不能用一些点来简单的表示。例如地图里面的街道、村庄等。对空间数据的一个典型操作是查找某个区域的所有目标（例如查找中关村大街上所有的餐馆等）。 对空间数据建立索引是一种好的想法，但传统数据库的一维索引并不适合对多维数据的查找。例如 hash 等结构也不适合，因为搜索的时候有一定的范围。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084842668.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084842355.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/WX20190410-162112%402x.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084846733.jpg">
+<meta property="og:updated_time" content="2019-04-10T08:58:41.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="凡叶">
-<meta name="twitter:description" content="虽世界艰难，但有你陪伴">
+<meta name="twitter:title" content="Rtree算法">
+<meta name="twitter:description" content="注：部分来源于网络 Rtree是为解决二维及二维以上的数据索引问题的。常用于解决空间问题。 空间数据经常是多维的，并不能用一些点来简单的表示。例如地图里面的街道、村庄等。对空间数据的一个典型操作是查找某个区域的所有目标（例如查找中关村大街上所有的餐馆等）。 对空间数据建立索引是一种好的想法，但传统数据库的一维索引并不适合对多维数据的查找。例如 hash 等结构也不适合，因为搜索的时候有一定的范围。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084842668.jpg">
   
     <link rel="alternative" href="/atom.xml" title="凡叶" type="application/atom+xml">
   
@@ -132,49 +138,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Rtree算法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/22/hello-world/" class="archive-article-date">
-  	<time datetime="2019-02-22T08:35:18.692Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/22/hello-world/">LBS里程计算</a>
+    <h1 class="article-title" itemprop="name">
+      Rtree算法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2019/04/10/Rtree算法/" class="archive-article-date">
+  	<time datetime="2019-04-10T06:38:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>注：部分来源于网络</p>
+<p>Rtree是为解决二维及二维以上的数据索引问题的。常用于解决空间问题。</p>
+<p>空间数据经常是多维的，并不能用一些点来简单的表示。例如地图里面的街道、村庄等。对空间数据的一个典型操作是查找某个区域的所有目标（例如查找中关村大街上所有的餐馆等）。</p>
+<p>对空间数据建立索引是一种好的想法，但传统数据库的一维索引并不适合对多维数据的查找。例如 hash 等结构也不适合，因为搜索的时候有一定的范围。而类似 B-Tree 的一些结构不能实现对多维数据的查找。</p>
+<p>算法原理：<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084842668.jpg" alt="avatar"></p>
+<p>空间内二维数据多变新是不规则矩形，我们以一种统一的矩形对对多边形来进行处理，采用最小外包矩形来标识多边形。</p>
+<p>使用左下角点和右上角点来表示矩形<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084842355.jpg" alt="avatar"> </p>
+<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/WX20190410-162112%402x.png" alt="avatar"></p>
+<p>对所有矩形构建索引，矩形分为P1,P2,P3,P4<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084846733.jpg" alt="avatar"></p>
+<p>本算法使用的Rree算法是来自于：<a href="https://github.com/davidmoten/rtree" target="_blank" rel="noopener">https://github.com/davidmoten/rtree</a></p>
+<p>算法使用：</p>
+<pre><code>//初始化Rtree
+RTree&lt;Object, Rectangle&gt; stashTree = RTree.create();
+//给矩形添加索引，注意矩形定义的是（x1,y1,x2,y2）,分别为左下角点和右上角点
+stashTree=stashTree.add(Entries.&lt;Object, Rectangle&gt;entry(1+&quot;&quot;,rectangle(1, 1, 2, 2)));
+stashTree=stashTree.add(Entries.&lt;Object, Rectangle&gt;entry(2+&quot;&quot;,rectangle(2, 2, 4, 4)));
+//查询坐标点(2,2),是否在矩形（1，1，2，2）和矩形（2，2，4，4）中
+List&lt;Entry&lt;Object, Rectangle&gt;&gt; list=stashTree.search(Geometries.point(2,2)).toList().toBlocking().single();
+        for (Entry&lt;Object, Rectangle&gt; t:list) {
+    System.out.println(t.geometry().area());
+}
 
+打印结果：
+1.0
+4.0
+</code></pre><p>以上例子中首先创建索引，然后对两个矩形添加索引，最后出搜索点所在的矩形，打印矩形面积。</p>
+<pre><code>创建RTree
+RTree&lt;String, Geometry&gt; tree = RTree.create();
+如果确定存储类型，例如Rectangle，也可指定类型创建
+RTree&lt;Object, Rectangle&gt; tree = RTree.create();
+添加结点到Rtree，需要指定该结点的平面位置或范围。Geometries提供了以下几种构造结点的方法
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/cc.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/bb.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LBS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://typ1990.github.io/2019/04/10/Rtree算法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/04/08/LBS空间索引/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">LBS空间索引</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "Wed Apr 10 2019 14:38:46 GMT+0800",
+  owner: 'typ1990',
+  repo: 'typ1990.github.io',
+  oauth: {
+    client_id: 'd053c917635c9c7e4204',
+    client_secret: '998e4cf64e81f2496968a220c7d8774d8fc958a4',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -197,8 +377,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -257,18 +437,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tag1</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tag2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">tag3</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LBS</a>
