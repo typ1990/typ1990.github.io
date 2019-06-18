@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://typ1990.github.io">
-  <title>凡叶</title>
+  <title>Archives: 2019/6 | 凡叶</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="虽世界艰难，但有你陪伴">
 <meta name="keywords" content="陪伴">
 <meta property="og:type" content="website">
 <meta property="og:title" content="凡叶">
-<meta property="og:url" content="https://typ1990.github.io/index.html">
+<meta property="og:url" content="https://typ1990.github.io/archives/2019/06/index.html">
 <meta property="og:site_name" content="凡叶">
 <meta property="og:description" content="虽世界艰难，但有你陪伴">
 <meta property="og:locale" content="zh-CN">
@@ -134,275 +134,47 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-worldDistance" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/18/worldDistance/">计算两个经纬度之间的距离</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/18/worldDistance/" class="archive-article-date">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/06/18/worldDistance/" class="archive-article-date">
   	<time datetime="2019-06-18T07:36:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>本文参考https://blog.csdn.net/xiejm2333/article/details/73297004，但其中有错误之处，会在下面指出
-</code></pre><p> 首先，你要想了解清楚经纬度的具体定义，看完后再往下看，便会一目了然。</p>
-<p> 将地球看成一个球体，A（WA，JA）、B（WB，JB）两点分别为两个点的位置，其中W为纬度，J为经度，O为球心，球半径为R，过A点画出A的纬度圈并与B所在的经度相交与点C，分别过B、C两点做球心O所在直线 的垂线相交与E、H，点B做垂线与CH的延长线相交于点D，OH与BC延长线相交与点F。添加辅助线后的两点距离示意图如图所示。</p>
-<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095207151.png" alt="avatar"></p>
-<p>图 两点距离示意图</p>
-<p>由示意图可知， H、E分别为A、B两点所在纬度圈的圆心，C点为与A点纬度相同，与B点经度相同，F为BC与HE延长线的交点，△OCF∽△DCB，因此：</p>
-<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095150226.png" alt="avatar"></p>
-<p>因为△AHF为直角三角形，所以</p>
-<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095308479.png" alt="avatar"></p>
-<p>由于A、C点在同一个纬度圈上，所以AH=CH</p>
-<p>设∠ACF为α，则设∠ACB为π-α，根据余弦定理得<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095504386.png" alt="avatar"></p>
-<p>综上则可以得出：</p>
-<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095536106.png" alt="avatar"></p>
-<p>根据A、B两点经纬度可知：<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095606294.png" alt="avatar"></p>
-<p>AB弧长（AB两点的距离）为（注：此处错误，应该是L=2R*sin(AB/2)）<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095738309.png" alt="avatar"></p>
-<p>最后计算得：<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095831856.png" alt="avatar"></p>
-<p>具体过程如下图：<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170617095855403.png" alt="avatar"></p>
-<p>公式中的经纬度均用弧度表示，计算两点距离的核心代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">algorithm</span><span class="params">(<span class="keyword">double</span> longitude1, <span class="keyword">double</span> latitude1, <span class="keyword">double</span> longitude2, <span class="keyword">double</span> latitude2)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">double</span> Lat1 = rad(latitude1); <span class="comment">// 纬度</span></span><br><span class="line"></span><br><span class="line">              <span class="keyword">double</span> Lat2 = rad(latitude2);</span><br><span class="line"></span><br><span class="line">              <span class="keyword">double</span> a = Lat1 - Lat2;<span class="comment">//两点纬度之差</span></span><br><span class="line"></span><br><span class="line">              <span class="keyword">double</span> b = rad(longitude1) - rad(longitude2); <span class="comment">//经度之差</span></span><br><span class="line"></span><br><span class="line">              <span class="keyword">double</span> s = <span class="number">2</span> * Math.asin(Math</span><br><span class="line"></span><br><span class="line">                            .sqrt(Math.pow(Math.sin(a / <span class="number">2</span>), <span class="number">2</span>) + Math.cos(Lat1) * Math.cos(Lat2) * Math.pow(Math.sin(b / <span class="number">2</span>), <span class="number">2</span>)));<span class="comment">//计算两点距离的公式</span></span><br><span class="line"></span><br><span class="line">              s = s * <span class="number">6378137.0</span>;<span class="comment">//弧长乘地球半径（半径为米）</span></span><br><span class="line"></span><br><span class="line">              s = Math.round(s * <span class="number">10000</span>d) / <span class="number">10000</span>d;<span class="comment">//精确距离的数值</span></span><br><span class="line"></span><br><span class="line">              <span class="keyword">return</span> s;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">rad</span><span class="params">(<span class="keyword">double</span> d)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">return</span> d * Math.PI / <span class="number">180.00</span>; <span class="comment">//角度转换成弧度</span></span><br><span class="line"></span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
-<p>我自己的推算流程，有些乱,请见谅，如有疑问，写在评论里<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/WechatIMG144.jpeg" alt="avatar"></p>
-<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/WechatIMG141.jpeg" alt="avatar"></p>
-<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/WechatIMG142.jpeg" alt="avatar"></p>
-<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/WechatIMG143.jpeg" alt="avatar"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/18/worldDistance/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Rtree算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/10/Rtree算法/">Rtree算法</a>
+      <a class="archive-article-title" href="/2019/06/18/worldDistance/">计算两个经纬度之间的距离</a>
     </h1>
   
 
-        
-        <a href="/2019/04/10/Rtree算法/" class="archive-article-date">
-  	<time datetime="2019-04-10T06:38:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>注：部分来源于网络</p>
-<p>Rtree是为解决二维及二维以上的数据索引问题的。常用于解决空间问题。</p>
-<p>空间数据经常是多维的，并不能用一些点来简单的表示。例如地图里面的街道、村庄等。对空间数据的一个典型操作是查找某个区域的所有目标（例如查找中关村大街上所有的餐馆等）。</p>
-<p>对空间数据建立索引是一种好的想法，但传统数据库的一维索引并不适合对多维数据的查找。例如 hash 等结构也不适合，因为搜索的时候有一定的范围。而类似 B-Tree 的一些结构不能实现对多维数据的查找。</p>
-<p>算法原理：<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084842668.jpg" alt="avatar"></p>
-<p>空间内二维数据多变新是不规则矩形，我们以一种统一的矩形对对多边形来进行处理，采用最小外包矩形来标识多边形。</p>
-<p>使用左下角点和右上角点来表示矩形<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084842355.jpg" alt="avatar"> </p>
-<p><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/WX20190410-162112%402x.png" alt="avatar"></p>
-<p>对所有矩形构建索引，矩形分为P1,P2,P3,P4<br><img src="https://raw.githubusercontent.com/typ1990/MyImage/master/MyBlog/20170410084846733.jpg" alt="avatar"></p>
-<p>本算法使用的Rree算法是来自于：<a href="https://github.com/davidmoten/rtree" target="_blank" rel="noopener">https://github.com/davidmoten/rtree</a></p>
-<p>算法使用：</p>
-<pre><code>//初始化Rtree
-RTree&lt;Object, Rectangle&gt; stashTree = RTree.create();
-//给矩形添加索引，注意矩形定义的是（x1,y1,x2,y2）,分别为左下角点和右上角点
-stashTree=stashTree.add(Entries.&lt;Object, Rectangle&gt;entry(1+&quot;&quot;,rectangle(1, 1, 2, 2)));
-stashTree=stashTree.add(Entries.&lt;Object, Rectangle&gt;entry(2+&quot;&quot;,rectangle(2, 2, 4, 4)));
-//查询坐标点(2,2),是否在矩形（1，1，2，2）和矩形（2，2，4，4）中
-List&lt;Entry&lt;Object, Rectangle&gt;&gt; list=stashTree.search(Geometries.point(2,2)).toList().toBlocking().single();
-        for (Entry&lt;Object, Rectangle&gt; t:list) {
-    System.out.println(t.geometry().area());
-}
+        <div class="article-info info-on-right">
+          
+          
 
-打印结果：
-1.0
-4.0
-</code></pre><p>以上例子中首先创建索引，然后对两个矩形添加索引，最后出搜索点所在的矩形，打印矩形面积。</p>
-<pre><code>创建RTree
-RTree&lt;String, Geometry&gt; tree = RTree.create();
-如果确定存储类型，例如Rectangle，也可指定类型创建
-RTree&lt;Object, Rectangle&gt; tree = RTree.create();
-添加结点到Rtree，需要指定该结点的平面位置或范围。Geometries提供了以下几种构造结点的方法
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LBS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/10/Rtree算法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-LBS空间索引" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/08/LBS空间索引/">LBS空间索引</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/08/LBS空间索引/" class="archive-article-date">
-  	<time datetime="2019-04-08T13:07:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>通过rtree算法和射线算法配合查询数据</p>
-<p>1，获取城市边界</p>
-<p>2，对城市的最大外接矩形，构建rtree索引,并且对所有边界都构建索引。</p>
-<p>找出最小经度，纬度和最大经度纬度，构建最大外接矩形</p>
-<p>3，若不在城市的最大外接矩形内，退出，即不在城市内</p>
-<p>4，构建点的射线，判断射线和边界的交叉</p>
-<p>5，使用射线算法，算出交点的个数，若个数为奇数，则在城市内，若为偶数，则不在城市内。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LBS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/08/LBS空间索引/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -424,9 +196,9 @@ RTree&lt;Object, Rectangle&gt; tree = RTree.create();
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
